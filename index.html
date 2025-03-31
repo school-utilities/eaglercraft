@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merged Page</title>
+    <script>
+        async function loadParts() {
+            const files = ['part1.html', 'part2.html', 'part3.html', 'part4.html', 'part5.html', 'part6.html'];
+            let content = '';
+
+            for (const file of files) {
+                const response = await fetch(file);
+                const text = await response.text();
+                content += text;
+            }
+
+            document.getElementById('content').innerHTML = content;
+        }
+
+        window.onload = loadParts;
+    </script>
+</head>
+<body>
+    <div id="content">Loading...</div>
+</body>
+</html>
